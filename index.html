@@ -234,7 +234,44 @@
     </div>
 </footer>
 
-	<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position:fixed;bottom:20px;right:20px;">↑ Top</button>
+<style>
+  #backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    padding: 10px 14px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+  }
+</style>
+
+<button id="backToTopBtn" title="Back to top">↑</button>
+
+<script>
+  const btn = document.getElementById("backToTopBtn");
+
+  // Show button when scrolling down
+  window.onscroll = () => {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Scroll to top when clicked
+  btn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+
 
 </body>
 </html>
